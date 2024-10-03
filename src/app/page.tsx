@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
-import { apps } from "@/app/database/apps.json";
+import { apps } from "@/app/database/apps";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookText, DownloadCloud, Search } from "lucide-react";
@@ -37,8 +37,6 @@ export default function Home() {
   const categories = apps.reduce<string[]>((acc, app) => {
     return Array.from(new Set([...acc, app.category]));
   }, []);
-
-  console.log({ languages, platforms, categories });
 
   return (
     <div className="h-screen flex flex-col m-auto max-w-screen-lg p-12">
@@ -102,14 +100,20 @@ export default function Home() {
       <div className="flex flex-col items-start w-full gap-4 my-8 overflow-auto">
         {filteredApps.length === 0 && (
           <div>
-            <span>lista vazia..</span>
+            <span className="text-zinc-500">Nenhum resultado.</span>
           </div>
         )}
 
         {filteredApps.length > 0 &&
           filteredApps?.map((app) => (
             <div key={app.id} className="flex gap-12 w-full border rounded-md border-zinc-300">
-              <Image src={logo} alt="App logo" className="object-cover" width={200} height={200} />
+              <Image
+                src={app.cover_img}
+                alt="App logo"
+                className="object-cover rounded-s-md"
+                width={200}
+                height={200}
+              />
               <div className="mt-4 gap-8 w-full flex items-start justify-between pr-4 pb-4">
                 <div>
                   <h2 className="font-bold text-blue-500">{app.name}</h2>
