@@ -1,7 +1,7 @@
 export const apps = [
   {
     id: 1,
-    name: "Lorem Ipsum",
+    name: "Matemática Divertida",
     description:
       "Aplicativo voltado para jovens e adultos aprimorarem suas habilidades em matemática básica e avançada.",
     category: "Matemática",
@@ -13,7 +13,7 @@ export const apps = [
   },
   {
     id: 2,
-    name: "Programação para Todos",
+    name: "Duolingo",
     description: "Ensina os princípios básicos de programação com foco em jovens e adultos no EJA.",
     category: "Programação",
     level: "Ensino Médio (EJA)",
